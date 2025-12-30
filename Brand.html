@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EOSIA HEALTH | Brand Manifesto</title>
+
+    <!-- Fonts: Quicksand (English) & IBM Plex Sans Arabic (Arabic) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons: Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        eos: {
+                            violet: '#7C4D93',
+                            blue: '#1F2A5A',
+                            light: '#F4F6F8',
+                            dark: '#0F152D'
+                        }
+                    },
+                    fontFamily: {
+                        en: ['Quicksand', 'sans-serif'],
+                        ar: ['IBM Plex Sans Arabic', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'reveal': 'reveal 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        reveal: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Base Typography based on Lang */
+        body[lang="ar"] {
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+        }
+
+        body[lang="en"] {
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1F2A5A;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #7C4D93;
+            border-radius: 4px;
+        }
+
+        /* Apple-style Glassmorphism */
+        .glass {
+            background: rgba(31, 42, 90, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(124, 77, 147, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Reveal on Scroll Class */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-primary {
+            background: linear-gradient(135deg, #7C4D93 0%, #b185c7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Squircle Border Radius (Approximation) */
+        .squircle {
+            border-radius: 24px;
+        }
+    </style>
+</head>
+
+<body class="bg-eos-blue text-white overflow-x-hidden antialiased selection:bg-eos-violet selection:text-white"
+    lang="ar">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center group">
+                <img src="media/EOSIA health dark mode.svg" alt="EOSIA Health Logo"
+                    class="h-10 sm:h-12 md:h-14 lg:h-16 group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_10px_rgba(124,77,147,0.3)]">
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="#philosophy" class="hover:text-white transition-colors duration-300"
+                    data-key="nav_philosophy">الفلسفة</a>
+                <a href="#anatomy" class="hover:text-white transition-colors duration-300" data-key="nav_name">الاسم</a>
+                <a href="#design" class="hover:text-white transition-colors duration-300"
+                    data-key="nav_identity">الهوية</a>
+                <a href="#logo" class="hover:text-white transition-colors duration-300" data-key="nav_logo">الشعار</a>
+                <a href="#uiux" class="hover:text-white transition-colors duration-300" data-key="nav_uiux">التصميم</a>
+                <button onclick="toggleLanguage()"
+                    class="flex items-center gap-1 hover:text-white transition-colors border border-white/20 px-3 py-1 rounded-full text-xs">
+                    <i class="ph ph-globe"></i>
+                    <span id="lang-label">English</span>
+                </button>
+                <a href="#contact"
+                    class="px-5 py-2 rounded-full bg-white/10 hover:bg-eos-violet hover:text-white transition-all duration-300 border border-white/10"
+                    data-key="nav_contact">تواصل معنا</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="flex items-center gap-4 md:hidden">
+                <button onclick="toggleLanguage()" class="text-white text-sm border border-white/20 px-2 py-1 rounded">
+                    <span id="lang-label-mobile">EN</span>
+                </button>
+                <button class="text-white text-2xl">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Background Gradients -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+            <div
+                class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-eos-violet rounded-full mix-blend-screen filter blur-[120px] opacity-20 animate-float">
+            </div>
+            <div class="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-blue-600 rounded-full mix-blend-screen filter blur-[120px] opacity-10 animate-float"
+                style="animation-delay: 2s;"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+            <div class="inline-block mb-6 px-4 py-1 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-xs font-semibold tracking-wider text-eos-violet uppercase animate-reveal"
+                style="animation-delay: 0.1s;" data-key="hero_tag">
+                الإصدار 1.0 &mdash; وثيقة الهوية
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 leading-tight animate-reveal"
+                style="animation-delay: 0.3s;">
+                <span data-key="hero_title_1">من الغموض</span><br>
+                <span class="text-gradient-primary" data-key="hero_title_2">إلى الوضوح.</span>
+            </h1>
+
+            <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed font-light animate-reveal px-2"
+                style="animation-delay: 0.5s;">
+                <span data-key="hero_sub_1">في عالم الطب، الحقائق غير المرئية هي الأخطر.</span><br>
+                <strong class="text-white font-medium">EOSIA</strong> <span data-key="hero_sub_2">هي الكاشف الذي يمنح
+                    المعرفة لونًا ومعنى.</span>
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center animate-reveal px-4"
+                style="animation-delay: 0.7s;">
+                <button
+                    class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-eos-violet text-white rounded-full font-semibold hover:bg-[#683f7d] transition-all duration-300 shadow-[0_10px_30px_rgba(124,77,147,0.4)] hover:shadow-[0_15px_40px_rgba(124,77,147,0.6)] transform hover:-translate-y-1 text-sm sm:text-base"
+                    data-key="btn_manifesto">
+                    اكتشف المانيفستو
+                </button>
+                <button
+                    class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-transparent border border-white/20 text-white rounded-full font-semibold hover:bg-white/5 transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base">
+                    <i class="ph ph-play-circle text-xl"></i>
+                    <span data-key="btn_watch">شاهد القصة</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce opacity-50">
+            <i class="ph ph-arrow-down text-2xl"></i>
+        </div>
+    </header>
+
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="py-16 sm:py-24 md:py-32 relative bg-eos-dark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                <div class="reveal-on-scroll">
+                    <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-white"
+                        data-key="phil_title">القصة الجوهرية</h2>
+                    <div class="w-16 sm:w-20 h-1 bg-eos-violet mb-6 md:mb-8 rounded-full"></div>
+                    <p class="text-base sm:text-lg md:text-xl text-gray-300 leading-loose mb-4 md:mb-6">
+                        <span data-key="phil_text_1">الأنسجة الحية تحت المجهر تكون شفافة، صامتة، وغير قابلة للفهم دون
+                            تدخّل. لا يظهر المعنى إلا عند إضافة</span> <span class="text-eos-violet font-bold"
+                            data-key="phil_reagent">كاشف (Reagent)</span>.
+                    </p>
+                    <p class="text-base sm:text-lg md:text-xl text-gray-300 leading-loose" data-key="phil_text_2">
+                        لسنا مجرد منصة تعليمية، بل كاشف معرفي رقمي. نحن الضوء الذي يكشف بنية المعرفة الطبية، ويحوّل الكم
+                        الهائل من المعلومات إلى رؤية واضحة.
+                    </p>
+                </div>
+
+                <div class="relative reveal-on-scroll delay-200">
+                    <!-- Real Eosin Images -->
+                    <div class="relative max-w-md mx-auto">
+                        <!-- Main container with two images -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                            <!-- Eosin Y Commercial Product -->
+                            <div class="relative group">
+                                <div
+                                    class="overflow-hidden rounded-[20px] sm:rounded-[24px] border border-white/10 shadow-2xl">
+                                    <img src="media/EOSIN y comercial product.png" alt="Eosin Y Commercial Product"
+                                        class="w-full h-40 sm:h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                                </div>
+                                <div
+                                    class="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 right-2 sm:right-3 bg-white/10 backdrop-blur-md px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg sm:rounded-xl border border-white/10">
+                                    <p class="text-xs text-white font-medium" data-key="eosin_product_label">Eosin Y -
+                                        الكاشف</p>
+                                </div>
+                            </div>
+                            <!-- Tissue Stained with Eosin -->
+                            <div class="relative group">
+                                <div class="overflow-hidden rounded-[24px] border border-white/10 shadow-2xl">
+                                    <img src="media/Tissu tache par eosin.png" alt="Tissue Stained with Eosin"
+                                        class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                                </div>
+                                <div
+                                    class="absolute bottom-3 left-3 right-3 bg-white/10 backdrop-blur-md px-3 py-2 rounded-xl border border-white/10">
+                                    <p class="text-xs text-white font-medium" data-key="eosin_tissue_label">النسيج بعد
+                                        التلوين</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- The "Reagent" Effect Card -->
+                        <div
+                            class="mt-6 bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-lg transform hover:-translate-y-1 transition-transform duration-500">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-eos-violet flex items-center justify-center text-white">
+                                    <i class="ph ph-drop text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white" data-key="card_reagent_title">الكاشف المعرفي</h4>
+                                    <p class="text-xs text-gray-300" data-key="card_reagent_desc">يمنح البنية، اللون،
+                                        والدلالة</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Anatomy of Name Section -->
+    <section id="anatomy" class="py-16 sm:py-24 md:py-32 relative overflow-hidden">
+        <!-- Background Elements -->
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[600px] md:w-[800px] h-[400px] sm:h-[600px] md:h-[800px] bg-eos-violet/10 rounded-full blur-[100px] pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="text-center mb-10 sm:mb-16 md:mb-20 reveal-on-scroll">
+                <span class="text-eos-violet font-semibold tracking-widest uppercase mb-2 block text-xs sm:text-sm"
+                    data-key="ana_subtitle">اشتقاق الاسم</span>
+                <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold"><span data-key="ana_title">تشريح</span> <span
+                        class="text-white">EOSIA</span></h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+                <!-- EOS Card -->
+                <div
+                    class="glass-card p-6 sm:p-8 md:p-10 rounded-[24px] sm:rounded-[32px] reveal-on-scroll hover:bg-eos-violet/20 group">
+                    <div class="flex justify-between items-start mb-4 sm:mb-6 md:mb-8">
+                        <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white">EOS</h3>
+                        <i
+                            class="ph ph-sun-horizon text-2xl sm:text-3xl md:text-4xl text-eos-violet group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h4 class="text-lg sm:text-xl md:text-2xl font-semibold mb-3 sm:mb-4 text-white"
+                        data-key="eos_card_title">الفجر / الوضوح</h4>
+                    <p class="text-sm sm:text-base text-gray-300 leading-relaxed mb-4 sm:mb-6" data-key="eos_card_text">
+                        مشتقة من الكلمة اليونانية القديمة Eōs وتعني الفجر. لحظة ظهور النور بعد الظلام.
+                        تمثل انتقال الطالب من الارتباك إلى الفهم، ومن التردد إلى دقة القرار.
+                    </p>
+                    <div class="flex items-center gap-2 text-xs sm:text-sm text-eos-violet font-medium">
+                        <span class="w-2 h-2 rounded-full bg-eos-violet"></span>
+                        <span data-key="eos_card_tag">لحظة "الآن فهمت"</span>
+                    </div>
+                </div>
+
+                <!-- IA Card -->
+                <div
+                    class="glass-card p-6 sm:p-8 md:p-10 rounded-[24px] sm:rounded-[32px] reveal-on-scroll delay-100 hover:bg-blue-500/10 group">
+                    <div class="flex justify-between items-start mb-4 sm:mb-6 md:mb-8">
+                        <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white">IA</h3>
+                        <i
+                            class="ph ph-brain text-2xl sm:text-3xl md:text-4xl text-blue-400 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h4 class="text-lg sm:text-xl md:text-2xl font-semibold mb-3 sm:mb-4 text-white"
+                        data-key="ia_card_title">الذكاء المُعزِّز</h4>
+                    <p class="text-sm sm:text-base text-gray-300 leading-relaxed mb-4 sm:mb-6" data-key="ia_card_text">
+                        Intelligence Augmentation لا Artificial Intelligence.
+                        فلسفتنا ليست استبدال الطبيب، بل تعزيز قدراته. التكنولوجيا عدسة توضيح، لا بديل عن العقل البشري.
+                    </p>
+                    <div class="flex items-center gap-2 text-xs sm:text-sm text-blue-400 font-medium">
+                        <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                        <span data-key="ia_card_tag">الطبيب يبقى صاحب القرار</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Identity & Color Palette -->
+    <section id="design" class="py-16 sm:py-24 md:py-32 bg-[#0F152D] relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-10 sm:mb-12 md:mb-16 text-center reveal-on-scroll"
+                data-key="color_title">كيمياء
+                الوضوح</h2>
+
+            <!-- Bento Grid Style -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 h-auto">
+
+                <!-- Primary Color: Violet -->
+                <div
+                    class="md:col-span-2 bg-[#7C4D93] rounded-[24px] sm:rounded-[32px] p-5 sm:p-8 md:p-12 relative overflow-hidden group reveal-on-scroll transition-all duration-500 hover:shadow-[0_0_50px_rgba(124,77,147,0.3)]">
+                    <div class="relative z-10 h-full flex flex-col justify-between">
+                        <div>
+                            <span
+                                class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs text-white mb-3 sm:mb-4"
+                                data-key="color_prim_tag">اللون الأساسي</span>
+                            <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">EOSIA Violet</h3>
+                            <p class="font-mono opacity-80 text-sm sm:text-base">#7C4D93</p>
+                        </div>
+                        <div class="max-w-md mt-4 sm:mt-6">
+                            <p class="text-white/90 text-sm sm:text-base md:text-lg leading-relaxed"
+                                data-key="color_prim_text">
+                                يرمز إلى المعرفة بعد أن تم تحليلها وفهمها. يمثل الذكاء، العمق، والنضج العلمي. يُستخدم في
+                                العناوين وأزرار الإجراء.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Decorative Circle -->
+                    <div
+                        class="absolute -right-10 sm:-right-20 -bottom-10 sm:-bottom-20 w-40 sm:w-60 md:w-80 h-40 sm:h-60 md:h-80 bg-white/10 rounded-full blur-3xl group-hover:bg-white/20 transition-all duration-500">
+                    </div>
+                </div>
+
+                <!-- Typography Card -->
+                <div
+                    class="bg-white text-eos-blue rounded-[24px] sm:rounded-[32px] p-5 sm:p-8 md:p-12 relative overflow-hidden reveal-on-scroll delay-100 flex flex-col justify-center">
+                    <div class="text-center">
+                        <h3 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-2">Aa</h3>
+                        <p class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6">Quicksand</p>
+                        <p class="text-gray-600 text-xs sm:text-sm leading-relaxed" data-key="font_text">
+                            هندسة اللطف. خط يوازن بين صرامة العلم وراحة التعلّم. حواف دائرية تقلل التوتر المعرفي.
+                        </p>
+                    </div>
+                    <div
+                        class="mt-4 sm:mt-8 space-y-1 sm:space-y-2 font-sans opacity-70 text-xs sm:text-sm text-center">
+                        <p class="font-light">Light 300</p>
+                        <p class="font-normal">Regular 400</p>
+                        <p class="font-bold">Bold 700</p>
+                    </div>
+                </div>
+
+                <!-- Secondary Color: Blue -->
+                <div
+                    class="md:col-span-3 bg-[#1F2A5A] border border-white/5 rounded-[24px] sm:rounded-[32px] p-5 sm:p-8 md:p-12 relative overflow-hidden reveal-on-scroll delay-200">
+                    <div
+                        class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 sm:gap-6 md:gap-8">
+                        <div class="flex-1">
+                            <span
+                                class="inline-block px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs text-blue-200 mb-3 sm:mb-4"
+                                data-key="color_sec_tag">اللون الثانوي</span>
+                            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-2">Deep Stroma Blue</h3>
+                            <p class="font-mono text-gray-400 text-sm">#1F2A5A</p>
+                        </div>
+                        <div class="flex-1 text-right md:text-right" id="blue-desc-container">
+                            <p class="text-sm sm:text-base text-gray-300 leading-relaxed" data-key="color_sec_text">
+                                يمثل العمق العلمي والبنية التحتية الصلبة. هو الخلفية التي تسمح للمعرفة أن تظهر بوضوح.
+                                يعكس الثقة والموثوقية المؤسسية.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Tone & Manifesto -->
+    <section class="py-16 sm:py-24 md:py-32 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            <i
+                class="ph ph-quotes text-4xl sm:text-5xl md:text-6xl text-eos-violet opacity-50 mb-6 sm:mb-8 inline-block reveal-on-scroll"></i>
+            <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-8 sm:mb-12 leading-tight reveal-on-scroll"
+                data-key="tone_quote">
+                "أنت ذكي،<br> ونحن هنا لنسرّع رحلتك."
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 text-center reveal-on-scroll delay-100">
+                <div class="p-4 sm:p-6">
+                    <div
+                        class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-eos-violet/10 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 text-eos-violet">
+                        <i class="ph ph-compass text-xl sm:text-2xl md:text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3" data-key="tone_1_title">مرشدون</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm" data-key="tone_1_text">لا نفرض المعرفة، بل نوجّه نحوها.
+                    </p>
+                </div>
+                <div class="p-4 sm:p-6">
+                    <div
+                        class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-eos-violet/10 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 text-eos-violet">
+                        <i class="ph ph-flask text-xl sm:text-2xl md:text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3" data-key="tone_2_title">علميون</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm" data-key="tone_2_text">مصطلحات دقيقة بلغة بشرية مفهومة.
+                    </p>
+                </div>
+                <div class="p-4 sm:p-6">
+                    <div
+                        class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-eos-violet/10 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 text-eos-violet">
+                        <i class="ph ph-lightning text-xl sm:text-2xl md:text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3" data-key="tone_3_title">مُمكّنون</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm" data-key="tone_3_text">الفجوة المعرفية ليست عيباً، بل
+                        فرصة للتقدم.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo & Iconography Section -->
+    <section id="logo" class="py-16 sm:py-24 md:py-32 relative bg-eos-dark/50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-10 sm:mb-16 md:mb-20 reveal-on-scroll">
+                <span class="text-eos-violet font-semibold tracking-widest uppercase mb-2 block text-xs sm:text-sm"
+                    data-key="logo_subtitle">الشعار والرمز</span>
+                <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold" data-key="logo_title">النواة الذكية</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                <!-- Logo Visual - Real SVG -->
+                <div class="relative reveal-on-scroll">
+                    <div class="relative aspect-square max-w-xs sm:max-w-sm mx-auto flex items-center justify-center">
+                        <!-- White background card for E symbol -->
+                        <div
+                            class="absolute w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 bg-white rounded-[32px] sm:rounded-[40px] shadow-2xl">
+                        </div>
+                        <!-- Outer glow -->
+                        <div
+                            class="absolute inset-0 bg-gradient-radial from-eos-violet/20 to-transparent rounded-full blur-3xl animate-pulse-slow">
+                        </div>
+                        <!-- Main Logo E Symbol from SVG -->
+                        <div class="relative transform hover:scale-105 transition-transform duration-500 z-10">
+                            <img src="media/EOSIA E letter vector.svg" alt="EOSIA E Symbol"
+                                class="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 drop-shadow-[0_10px_30px_rgba(124,77,147,0.3)]">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Logo Description -->
+                <div class="reveal-on-scroll delay-200">
+                    <h3 class="text-2xl font-bold mb-6 text-white" data-key="logo_concept_title">مفهوم الكشف من الداخل
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-eos-violet/20 flex items-center justify-center text-eos-violet shrink-0">
+                                <i class="ph ph-rows text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-2" data-key="logo_squircle_title">الخطوط الثلاثة
+                                    والحافة المنحنية</h4>
+                                <p class="text-gray-400 text-sm leading-relaxed" data-key="logo_squircle_text">
+                                    ثلاثة خطوط أفقية ذات نهايات مستديرة تمثل التدفق والاستمرارية. الحافة اللونية
+                                    المنحنية تجمع بين البنفسجي والأزرق الداكن.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-eos-violet/20 flex items-center justify-center text-eos-violet shrink-0">
+                                <i class="ph ph-palette text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-2" data-key="logo_color_title">التكوين اللوني:
+                                    البنفسجي والأزرق</h4>
+                                <p class="text-gray-400 text-sm leading-relaxed" data-key="logo_color_text">
+                                    البنفسجي (#7C4D93) يمثل المعرفة والنضج. الأزرق الداكن (#1F2A5A) يمثل العمق والثقة.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-eos-violet/20 flex items-center justify-center text-eos-violet shrink-0">
+                                <i class="ph ph-sparkle text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-2" data-key="logo_symbol_title">رمزية الحرف E
+                                </h4>
+                                <p class="text-gray-400 text-sm leading-relaxed" data-key="logo_symbol_text">
+                                    تصميم إبداعي للحرف E بثلاثة خطوط مستديرة ترمز إلى المعرفة المتدفقة.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UI/UX Guidelines Section -->
+    <section id="uiux" class="py-32 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 reveal-on-scroll">
+                <span class="text-eos-violet font-semibold tracking-widest uppercase mb-2 block"
+                    data-key="uiux_subtitle">مبادئ التصميم</span>
+                <h2 class="text-4xl md:text-6xl font-bold" data-key="uiux_title">إرشادات الواجهة</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Breathing Room -->
+                <div class="glass-card p-8 rounded-[32px] reveal-on-scroll group">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-gradient-to-br from-eos-violet to-[#5a3570] flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                        <i class="ph ph-wind text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white" data-key="uiux_breathing_title">مساحة للتنفس</h3>
+                    <p class="text-gray-400 leading-relaxed text-sm" data-key="uiux_breathing_text">
+                        لا ازدحام معلومات. الوضوح أولوية مطلقة. نترك للعين والعقل مساحة للاستيعاب والتركيز على ما هو
+                        مهم.
+                    </p>
+                    <div class="mt-6 pt-6 border-t border-white/10">
+                        <p class="text-xs text-eos-violet font-semibold" data-key="uiux_breathing_tag">Breathing Room
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Purposeful Gamification -->
+                <div class="glass-card p-8 rounded-[32px] reveal-on-scroll delay-100 group">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-gradient-to-br from-eos-violet to-[#5a3570] flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                        <i class="ph ph-trophy text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white" data-key="uiux_gamification_title">تلعيب هادف</h3>
+                    <p class="text-gray-400 leading-relaxed text-sm" data-key="uiux_gamification_text">
+                        المكافآت تُستخدم لتعزيز التقدّم، لا التشتيت. كل عنصر تفاعلي له غرض تعليمي واضح يدعم رحلة التعلم.
+                    </p>
+                    <div class="mt-6 pt-6 border-t border-white/10">
+                        <p class="text-xs text-eos-violet font-semibold" data-key="uiux_gamification_tag">Purposeful
+                            Gamification</p>
+                    </div>
+                </div>
+
+                <!-- Consistent Corners -->
+                <div class="glass-card p-8 rounded-[32px] reveal-on-scroll delay-200 group">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-gradient-to-br from-eos-violet to-[#5a3570] flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                        <i class="ph ph-corners-out text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white" data-key="uiux_corners_title">الزوايا المتناسقة</h3>
+                    <p class="text-gray-400 leading-relaxed text-sm" data-key="uiux_corners_text">
+                        جميع العناصر تتبع نصف قطر دائري متناسق مع خط Quicksand. تناغم بصري يعكس فلسفة الوضوح والأناقة.
+                    </p>
+                    <div class="mt-6 pt-6 border-t border-white/10">
+                        <p class="text-xs text-eos-violet font-semibold" data-key="uiux_corners_tag">Rounded Corners
+                            Consistency</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Design System Preview -->
+            <div class="mt-16 glass-card p-8 md:p-12 rounded-[32px] reveal-on-scroll delay-300">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-4 text-white" data-key="uiux_system_title">نظام تصميم متكامل
+                        </h3>
+                        <p class="text-gray-400 leading-relaxed" data-key="uiux_system_text">
+                            كل عنصر في EOSIA يتبع منظومة بصرية موحدة. من الألوان إلى الخطوط، ومن الأيقونات إلى الأزرار.
+                            نُصمِّم لنقلّل الحمل المعرفي ونجعل التعلّم تجربة سلسة وممتعة.
+                        </p>
+                    </div>
+                    <div class="flex gap-4">
+                        <!-- Sample UI Elements -->
+                        <div class="w-12 h-12 rounded-xl bg-eos-violet flex items-center justify-center text-white">
+                            <i class="ph ph-check text-xl"></i>
+                        </div>
+                        <div
+                            class="w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-white">
+                            <i class="ph ph-arrow-right text-xl"></i>
+                        </div>
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gradient-to-br from-eos-violet to-blue-500 flex items-center justify-center text-white">
+                            <i class="ph ph-star text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-[#0F152D] py-8 sm:py-10 md:py-12">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
+            <div class="flex items-center">
+                <img src="media/EOSIA health dark mode.svg" alt="EOSIA Health" class="h-10 sm:h-12 md:h-14 w-auto">
+            </div>
+
+            <div class="text-gray-500 text-xs sm:text-sm text-center" data-key="footer_rights">
+                &copy; 2026 EOSIA Health. جميع الحقوق محفوظة.
+            </div>
+
+            <div class="flex gap-3 sm:gap-4">
+                <a href="#"
+                    class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-eos-violet transition-colors">
+                    <i class="ph ph-twitter-logo text-sm sm:text-base"></i>
+                </a>
+                <a href="#"
+                    class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-eos-violet transition-colors">
+                    <i class="ph ph-linkedin-logo text-sm sm:text-base"></i>
+                </a>
+                <a href="#"
+                    class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-eos-violet transition-colors">
+                    <i class="ph ph-instagram-logo text-sm sm:text-base"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Content Dictionary
+        const content = {
+            ar: {
+                nav_philosophy: "الفلسفة",
+                nav_name: "الاسم",
+                nav_identity: "الهوية",
+                nav_contact: "تواصل معنا",
+                hero_tag: "الإصدار 1.0 — وثيقة الهوية",
+                hero_title_1: "من الغموض",
+                hero_title_2: "إلى الوضوح.",
+                hero_sub_1: "في عالم الطب، الحقائق غير المرئية هي الأخطر.",
+                hero_sub_2: "هي الكاشف الذي يمنح المعرفة لونًا ومعنى.",
+                btn_manifesto: "اكتشف المانيفستو",
+                btn_watch: "شاهد القصة",
+                phil_title: "القصة الجوهرية",
+                phil_text_1: "الأنسجة الحية تحت المجهر تكون شفافة، صامتة، وغير قابلة للفهم دون تدخّل. لا يظهر المعنى إلا عند إضافة",
+                phil_reagent: "كاشف (Reagent)",
+                phil_text_2: "لسنا مجرد منصة تعليمية، بل كاشف معرفي رقمي. نحن الضوء الذي يكشف بنية المعرفة الطبية، ويحوّل الكم الهائل من المعلومات إلى رؤية واضحة.",
+                card_reagent_title: "الكاشف المعرفي",
+                card_reagent_desc: "يمنح البنية، اللون، والدلالة",
+                ana_subtitle: "اشتقاق الاسم",
+                ana_title: "تشريح",
+                eos_card_title: "الفجر / الوضوح",
+                eos_card_text: "مشتقة من الكلمة اليونانية القديمة Eōs وتعني الفجر. لحظة ظهور النور بعد الظلام. تمثل انتقال الطالب من الارتباك إلى الفهم، ومن التردد إلى دقة القرار.",
+                eos_card_tag: 'لحظة "الآن فهمت"',
+                ia_card_title: "الذكاء المُعزِّز",
+                ia_card_text: "Intelligence Augmentation لا Artificial Intelligence. فلسفتنا ليست استبدال الطبيب، بل تعزيز قدراته. التكنولوجيا عدسة توضيح، لا بديل عن العقل البشري.",
+                ia_card_tag: "الطبيب يبقى صاحب القرار",
+                color_title: "كيمياء الوضوح",
+                color_prim_tag: "اللون الأساسي",
+                color_prim_text: "يرمز إلى المعرفة بعد أن تم تحليلها وفهمها. يمثل الذكاء، العمق، والنضج العلمي. يُستخدم في العناوين وأزرار الإجراء.",
+                font_text: "هندسة اللطف. خط يوازن بين صرامة العلم وراحة التعلّم. حواف دائرية تقلل التوتر المعرفي.",
+                color_sec_tag: "اللون الثانوي",
+                color_sec_text: "يمثل العمق العلمي والبنية التحتية الصلبة. هو الخلفية التي تسمح للمعرفة أن تظهر بوضوح. يعكس الثقة والموثوقية المؤسسية.",
+                tone_quote: '"أنت ذكي،<br> ونحن هنا لنسرّع رحلتك."',
+                tone_1_title: "مرشدون",
+                tone_1_text: "لا نفرض المعرفة، بل نوجّه نحوها.",
+                tone_2_title: "علميون",
+                tone_2_text: "مصطلحات دقيقة بلغة بشرية مفهومة.",
+                tone_3_title: "مُمكّنون",
+                tone_3_text: "الفجوة المعرفية ليست عيباً، بل فرصة للتقدم.",
+                // Logo Section
+                nav_logo: "الشعار",
+                nav_uiux: "التصميم",
+                logo_subtitle: "الشعار والرمز",
+                logo_title: "النواة الذكية",
+                logo_concept_title: "مفهوم الكشف من الداخل",
+                logo_squircle_title: "الخطوط الثلاثة والحافة المنحنية",
+                logo_squircle_text: "ثلاثة خطوط أفقية ذات نهايات مستديرة تمثل التدفق والاستمرارية. الحافة اللونية المنحنية تجمع بين البنفسجي والأزرق الداكن لترمز إلى العمق والوضوح.",
+                logo_color_title: "التكوين اللوني: البنفسجي والأزرق",
+                logo_color_text: "البنفسجي (#7C4D93) يمثل المعرفة والنضج. الأزرق الداكن (#1F2A5A) يمثل العمق والثقة. معًا يرمزان إلى رحلة الفهم من العتمة إلى النور.",
+                logo_symbol_title: "رمزية الحرف E",
+                logo_symbol_text: "تصميم إبداعي للحرف E بثلاثة خطوط مستديرة ترمز إلى المعرفة المتدفقة. الفراغ السلبي يرمز إلى النور والفجر وبداية الفهم.",
+                // Origin Story Section - Eosin Labels
+                eosin_product_label: "Eosin Y - الكاشف",
+                eosin_tissue_label: "النسيج بعد التلوين",
+                // UI/UX Section
+                uiux_subtitle: "مبادئ التصميم",
+                uiux_title: "إرشادات الواجهة",
+                uiux_breathing_title: "مساحة للتنفس",
+                uiux_breathing_text: "لا ازدحام معلومات. الوضوح أولوية مطلقة. نترك للعين والعقل مساحة للاستيعاب والتركيز على ما هو مهم.",
+                uiux_breathing_tag: "Breathing Room",
+                uiux_gamification_title: "تلعيب هادف",
+                uiux_gamification_text: "المكافآت تُستخدم لتعزيز التقدّم، لا التشتيت. كل عنصر تفاعلي له غرض تعليمي واضح يدعم رحلة التعلم.",
+                uiux_gamification_tag: "Purposeful Gamification",
+                uiux_corners_title: "الزوايا المتناسقة",
+                uiux_corners_text: "جميع العناصر تتبع نصف قطر دائري متناسق مع خط Quicksand. تناغم بصري يعكس فلسفة الوضوح والأناقة.",
+                uiux_corners_tag: "Rounded Corners Consistency",
+                uiux_system_title: "نظام تصميم متكامل",
+                uiux_system_text: "كل عنصر في EOSIA يتبع منظومة بصرية موحدة. من الألوان إلى الخطوط، ومن الأيقونات إلى الأزرار. نُصمِّم لنقلّل الحمل المعرفي ونجعل التعلّم تجربة سلسة وممتعة.",
+                footer_rights: "&copy; 2026 EOSIA Health. جميع الحقوق محفوظة."
+            },
+            en: {
+                nav_philosophy: "Philosophy",
+                nav_name: "The Name",
+                nav_identity: "Identity",
+                nav_contact: "Contact Us",
+                hero_tag: "Version 1.0 — Brand Manifesto",
+                hero_title_1: "From Ambiguity",
+                hero_title_2: "To Clarity.",
+                hero_sub_1: "In the world of medicine, unseen truths are the most dangerous.",
+                hero_sub_2: "is the reagent that gives knowledge color and meaning.",
+                btn_manifesto: "Discover Manifesto",
+                btn_watch: "Watch the Story",
+                phil_title: "The Origin Story",
+                phil_text_1: "Living tissues under a microscope are transparent, silent, and unintelligible without intervention. Meaning only appears when adding a",
+                phil_reagent: "Reagent",
+                phil_text_2: "We are not just an educational platform, but a digital cognitive reagent. We are the light that reveals the structure of medical knowledge, transforming vast amounts of information into clear vision.",
+                card_reagent_title: "Cognitive Reagent",
+                card_reagent_desc: "Gives structure, color, and meaning",
+                ana_subtitle: "Derivation",
+                ana_title: "Anatomy of",
+                eos_card_title: "Dawn / Clarity",
+                eos_card_text: "Derived from ancient Greek 'Eōs' meaning Dawn. The moment light appears after darkness. Represents the student's shift from confusion to understanding.",
+                eos_card_tag: 'The "Aha!" Moment',
+                ia_card_title: "Intelligence Augmentation",
+                ia_card_text: "Intelligence Augmentation, not Artificial Intelligence. Our philosophy is not to replace the doctor, but to augment their capabilities. Technology is a lens for clarity, not a substitute for the mind.",
+                ia_card_tag: "The Doctor remains the decision maker",
+                color_title: "The Chemistry of Clarity",
+                color_prim_tag: "Primary Color",
+                color_prim_text: "Symbolizes knowledge after analysis and understanding. Represents intelligence, depth, and scientific maturity. Used for headlines and Call-to-Actions.",
+                font_text: "The Geometry of Kindness. A font that balances scientific rigor with learning comfort. Rounded edges reduce cognitive load.",
+                color_sec_tag: "Secondary Color",
+                color_sec_text: "Represents scientific depth and solid infrastructure. The background that allows knowledge to stand out clearly. Reflects trust and institutional reliability.",
+                tone_quote: '"You are smart,<br> we are here to accelerate your journey."',
+                tone_1_title: "Guides",
+                tone_1_text: "We don't impose knowledge, we guide towards it.",
+                tone_2_title: "Scientists",
+                tone_2_text: "Precise terminology in understandable human language.",
+                tone_3_title: "Enablers",
+                tone_3_text: "Knowledge gaps are not flaws, but opportunities for progress.",
+                // Logo Section
+                nav_logo: "Logo",
+                nav_uiux: "Design",
+                logo_subtitle: "Logo & Iconography",
+                logo_title: "The Intelligent Core",
+                logo_concept_title: "The Concept of Revealing from Within",
+                logo_squircle_title: "Three Lines & Curved Edge",
+                logo_squircle_text: "Three horizontal lines with rounded ends represent flow and continuity. The curved color edge combines violet and deep blue to symbolize depth and clarity.",
+                logo_color_title: "Color Composition: Violet & Blue",
+                logo_color_text: "Violet (#7C4D93) represents knowledge and maturity. Deep Blue (#1F2A5A) represents depth and trust. Together they symbolize the journey from darkness to light.",
+                logo_symbol_title: "The E Symbol",
+                logo_symbol_text: "A creative design of the letter E with three rounded lines symbolizing flowing knowledge. The negative space represents light, dawn, and the beginning of understanding.",
+                // Origin Story Section - Eosin Labels
+                eosin_product_label: "Eosin Y - The Reagent",
+                eosin_tissue_label: "Tissue After Staining",
+                // UI/UX Section
+                uiux_subtitle: "Design Principles",
+                uiux_title: "UI/UX Guidelines",
+                uiux_breathing_title: "Breathing Room",
+                uiux_breathing_text: "No information clutter. Clarity is the absolute priority. We leave space for the eye and mind to absorb and focus on what matters.",
+                uiux_breathing_tag: "Breathing Room",
+                uiux_gamification_title: "Purposeful Gamification",
+                uiux_gamification_text: "Rewards are used to enhance progress, not distraction. Every interactive element has a clear educational purpose that supports the learning journey.",
+                uiux_gamification_tag: "Purposeful Gamification",
+                uiux_corners_title: "Consistent Corners",
+                uiux_corners_text: "All elements follow a consistent rounded radius matching the Quicksand font. Visual harmony reflecting the philosophy of clarity and elegance.",
+                uiux_corners_tag: "Rounded Corners Consistency",
+                uiux_system_title: "Integrated Design System",
+                uiux_system_text: "Every element in EOSIA follows a unified visual system. From colors to fonts, from icons to buttons. We design to reduce cognitive load and make learning a smooth, enjoyable experience.",
+                footer_rights: "&copy; 2026 EOSIA Health. All rights reserved."
+            }
+        };
+
+        let currentLang = 'ar';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const isRTL = currentLang === 'ar';
+
+            // Update HTML attributes
+            document.documentElement.lang = currentLang;
+            document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+            document.body.lang = currentLang;
+
+            // Update Label
+            document.getElementById('lang-label').innerText = isRTL ? 'English' : 'العربية';
+            document.getElementById('lang-label-mobile').innerText = isRTL ? 'EN' : 'عربي';
+
+            // Update Text Content
+            const elements = document.querySelectorAll('[data-key]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (content[currentLang][key]) {
+                    el.innerHTML = content[currentLang][key];
+                }
+            });
+
+            // Adjust Text Alignments for Specific Sections if needed
+            const blueDesc = document.getElementById('blue-desc-container');
+            if (blueDesc) {
+                if (isRTL) {
+                    blueDesc.classList.remove('text-left');
+                    blueDesc.classList.add('text-right');
+                    blueDesc.parentElement.classList.remove('md:text-left');
+                    blueDesc.parentElement.classList.add('md:text-right');
+                } else {
+                    blueDesc.classList.remove('text-right');
+                    blueDesc.classList.add('text-left');
+                    blueDesc.parentElement.classList.remove('md:text-right');
+                    blueDesc.parentElement.classList.add('md:text-left');
+                }
+            }
+        }
+
+        // Simple Intersection Observer for scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            const elements = document.querySelectorAll('.reveal-on-scroll');
+            elements.forEach(el => observer.observe(el));
+
+            // Navbar Glass effect on scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('shadow-lg');
+                    navbar.style.background = 'rgba(31, 42, 90, 0.85)';
+                } else {
+                    navbar.classList.remove('shadow-lg');
+                    navbar.style.background = 'rgba(31, 42, 90, 0.6)';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
